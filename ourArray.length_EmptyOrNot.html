@@ -1,0 +1,125 @@
+<!-- Dedicated to God the Father -->
+
+<!-- All Rights Reserved Christopher Topalian Copyright 2000-2023 -->
+
+<!-- https://github.com/ChristopherTopalian -->
+
+<!-- ourArray.length_EmptyOrNot.html -->
+
+<html>
+<head>
+<title> ourArray.length Empty or Not </title>
+
+<style>
+
+body
+{
+    padding: 20px;
+    background-color: rgb(40, 40, 40);
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.mainDiv
+{
+    position: absolute;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+}
+
+.titleStyle
+{
+    padding: 5px;
+    background-color: rgb(0, 0, 0);
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(0, 255, 255);
+}
+
+.resultStyle
+{
+    padding: 5px;
+    background-color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+}
+
+</style>
+
+<script>
+
+let people = [
+    "Jane",
+    "Jennifer",
+    "Tabitha",
+    "Joan"
+];
+
+function setStage()
+{
+    // mainDiv
+    let mainDiv = document.createElement("div");
+    mainDiv.id = "mainDiv";
+    mainDiv.className = "mainDiv";
+    document.body.append(mainDiv);
+
+    //----//
+
+    // titleIsArrayEmpty
+    let titleIsArrayEmpty = document.createElement("div");
+    titleIsArrayEmpty.id = "titleIsArrayEmpty";
+    titleIsArrayEmpty.className = "titleStyle";
+    titleIsArrayEmpty.innerHTML = "Is Array Empty?";
+    mainDiv.append(titleIsArrayEmpty);
+
+    //----//
+
+    // isArrayEmptyDiv
+    let isArrayEmptyDiv = document.createElement("div");
+    isArrayEmptyDiv.id = "isArrayEmptyDiv";
+    isArrayEmptyDiv.className = "resultStyle";
+    mainDiv.append(isArrayEmptyDiv);
+}
+
+//----//
+
+function isArrayEmpty(whichArray)
+{
+    if (whichArray.length > 0)
+    {
+        let messageNotEmpty = "Array is not empty.";
+
+        let amountOfPeople = "There are " + whichArray.length + " people in the array";
+
+        let arrayFormatted = JSON.stringify(whichArray);
+
+        return messageNotEmpty + "<br>" +
+        amountOfPeople + "<br>" + arrayFormatted;
+    }
+    else
+    {
+        return "Array is Empty.";
+    }
+}
+
+//----//
+
+function whenLoaded()
+{
+    setStage();
+
+    document.getElementById("isArrayEmptyDiv").innerHTML = isArrayEmpty(people);
+}
+
+</script>
+
+<body onload = "whenLoaded();">
+
+</body>
+
+</html>
